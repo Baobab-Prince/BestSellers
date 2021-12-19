@@ -31,10 +31,18 @@ const Books = () => {
             rank,
             title,
           } = book;
-          return <article key={rank}></article>;
-          <div>
-            <img src={book_image} alt={title} />
-          </div>;
+          return (
+            <article key={rank}>
+              <div>
+                <img src={book_image} alt={title} />
+              </div>
+
+              <div>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </div>
+            </article>
+          );
         })}
       </section>
     </>
