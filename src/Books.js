@@ -20,12 +20,10 @@ const Books = () => {
       <section>
         {books.map((book) => {
           const {
-            age_group,
             author,
             book_image,
             buy_links,
             description,
-            price,
             primary_isbn10,
             publisher,
             rank,
@@ -40,7 +38,24 @@ const Books = () => {
               <div>
                 <h3>{title}</h3>
                 <p>{description}</p>
+                <p>{author}</p>
               </div>
+              <ul>
+                <li>Publisher: {publisher}</li>
+                <li>ISBN: {primary_isbn10}</li>
+              </ul>
+
+              <ul>
+                <p>Buy Now:</p>
+                {buy_links.map((link) => {
+                  const { name, url } = link;
+                  return (
+                    <div key={name}>
+                      <a href={url}>{name}</a>
+                    </div>
+                  );
+                })}
+              </ul>
             </article>
           );
         })}
