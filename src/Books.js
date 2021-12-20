@@ -16,10 +16,10 @@ const Books = () => {
   }, []);
   return (
     <>
-      <h1 className="font-bold text-center text-4xl py-5">
+      <h1 className="font-bold text-center text-4xl py-5 lg:text-6xl">
         NYT Best Sellers List
       </h1>
-      <section className="grid grid-cols-1 gap-10 px-5 sm:grid-cols-2">
+      <section className="grid grid-cols-1 gap-10 px-5 pb-20 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {books.map((book) => {
           const {
             author,
