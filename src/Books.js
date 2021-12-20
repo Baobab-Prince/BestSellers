@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import { BiLinkExternal } from 'react-icons/bi';
 const Books = () => {
   const [books, setBooks] = useState([]);
 
@@ -16,8 +16,10 @@ const Books = () => {
   }, []);
   return (
     <>
-      <h1 className="font-bold text-center text-4xl py-5">Books</h1>
-      <section className="grid grid-cols-1 gap-10 px-5">
+      <h1 className="font-bold text-center text-4xl py-5">
+        NYT Best Sellers List
+      </h1>
+      <section className="grid grid-cols-1 gap-10 px-5 sm:grid-cols-2">
         {books.map((book) => {
           const {
             author,
@@ -31,7 +33,10 @@ const Books = () => {
           } = book;
 
           return (
-            <article key={rank}>
+            <article
+              key={rank}
+              className="bg-gray-100 py-5 px-10 rounded-lg sm:px-5"
+            >
               <div>
                 <img
                   src={book_image}
@@ -63,7 +68,14 @@ const Books = () => {
                   const { name, url } = link;
                   return (
                     <div key={name}>
-                      <a href={url}>{name}</a>
+                      <a
+                        href={url}
+                        className="flex items-center"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {name} <BiLinkExternal className="ml-1" />
+                      </a>
                     </div>
                   );
                 })}
